@@ -10,15 +10,16 @@ http:
     type: json
     data: |-
       {
-        "id": 0,
-        "clientId": 2,
+        "clientId": 5,
         "brand": "Toyota",
-        "model": "Camry",
-        "year": 2020,
-        "licensePlate": "A123BC77",
-        "mileage": 65000
+        "model": "RAV4",
+        "year": 2021,
+        "licensePlate": "K321MB77",
+        "mileage": 46000
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlciIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwibmJmIjoxNzkwMDg4MTc5LCJleHAiOjE4MjE2MjQxNzksImlzcyI6IkxhYjJfQmFyYW5vdiIsImF1ZCI6IkFQSUNsaWVudHMifQ.MT2AGHApjYjSVgUKsYYSQRIoALkesJlbVbc1geUpp1Y
 
 settings:
   encodeUrl: true

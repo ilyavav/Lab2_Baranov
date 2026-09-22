@@ -10,15 +10,16 @@ http:
     type: json
     data: |-
       {
-        "id": 0,
-        "carId": 2,
-        "description": "Замена тормозных колодок",
-        "createdDate": "2026-09-22T16:20:00",
-        "workCost": 5000,
-        "partsCost": 8000,
-        "status": "New"
+        "carId": 5,
+        "description": "Замена аккумулятора",
+        "createdDate": "2026-09-18T09:30:00",
+        "workCost": 1500,
+        "partsCost": 11000,
+        "status": "InProgress"
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlciIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwibmJmIjoxNzkwMDg4MTc5LCJleHAiOjE4MjE2MjQxNzksImlzcyI6IkxhYjJfQmFyYW5vdiIsImF1ZCI6IkFQSUNsaWVudHMifQ.MT2AGHApjYjSVgUKsYYSQRIoALkesJlbVbc1geUpp1Y
 
 settings:
   encodeUrl: true

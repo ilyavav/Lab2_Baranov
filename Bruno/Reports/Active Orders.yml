@@ -6,7 +6,9 @@ info:
 http:
   method: GET
   url: https://localhost:7175/api/Reports/active-orders
-  auth: inherit
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlciIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Imd1ZXN0IiwibmJmIjoxNzkwMDg4MTYxLCJleHAiOjE4MjE2MjQxNjEsImlzcyI6IkxhYjJfQmFyYW5vdiIsImF1ZCI6IkFQSUNsaWVudHMifQ.QO1rGVY5hFjZWV4GR4Q3Zw1yL6a2yAyb2C8o3NEZJkE
 
 settings:
   encodeUrl: true

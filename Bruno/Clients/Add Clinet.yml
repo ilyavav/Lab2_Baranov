@@ -10,10 +10,9 @@ http:
     type: json
     data: |-
       {
-        "id": 0,
-        "name": "Иван Иванов",
-        "phone": "+79990001122",
-        "completedOrders": 3
+        "name": "Сергей Волков",
+        "phone": "+79994445566",
+        "completedOrders": 8
       }
   auth:
     type: bearer

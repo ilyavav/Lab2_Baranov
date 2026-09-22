@@ -53,14 +53,27 @@ public class RepairOrdersController : ControllerBase
     [HttpPut("{id}/complete")]
     public async Task<IActionResult> CompleteOrder(int id)
     {
-        var repairOrder = await _context.RepairOrders.FindAsync(id);
+        var repairOrder = await _context.RepairOrders
+            .Include(order => order.Car)
+            .ThenInclude(car => car!.Client)
+            .FirstOrDefaultAsync(order => order.Id == id);
 
         if (repairOrder == null)
         {
             return NotFound();
         }
 
+        if (repairOrder.Status == "Completed")
+        {
+            return NoContent();
+        }
+
         repairOrder.CompleteOrder();
+
+        if (repairOrder.Car?.Client != null)
+        {
+            repairOrder.Car.Client.CompletedOrders++;
+        }
 
         await _context.SaveChangesAsync();
 
