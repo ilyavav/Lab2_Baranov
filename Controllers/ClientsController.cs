@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Lab2_Baranov.Models;
@@ -48,6 +49,7 @@ public class ClientsController : ControllerBase
         return Ok(isRegular);
     }
 
+    [Authorize(Roles = "admin")]
     [HttpPut("{id}")]
     public async Task<IActionResult> PutClient(int id, Client client)
     {
@@ -75,6 +77,7 @@ public class ClientsController : ControllerBase
         return NoContent();
     }
 
+    [Authorize(Roles = "admin")]
     [HttpPost]
     public async Task<ActionResult<Client>> PostClient(Client client)
     {
@@ -84,6 +87,7 @@ public class ClientsController : ControllerBase
         return CreatedAtAction("GetClient", new { id = client.Id }, client);
     }
 
+    [Authorize(Roles = "admin")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteClient(int id)
     {

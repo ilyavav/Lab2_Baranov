@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Lab2_Baranov.Models;
@@ -33,6 +34,7 @@ public class CarsController : ControllerBase
         return car;
     }
 
+    [Authorize]
     [HttpPut("{id}/mileage/{newMileage}")]
     public async Task<IActionResult> UpdateMileage(int id, int newMileage)
     {
@@ -53,6 +55,7 @@ public class CarsController : ControllerBase
         return NoContent();
     }
 
+    [Authorize(Roles = "admin")]
     [HttpPut("{id}")]
     public async Task<IActionResult> PutCar(int id, Car car)
     {
@@ -80,6 +83,7 @@ public class CarsController : ControllerBase
         return NoContent();
     }
 
+    [Authorize(Roles = "admin")]
     [HttpPost]
     public async Task<ActionResult<Car>> PostCar(Car car)
     {
@@ -89,6 +93,7 @@ public class CarsController : ControllerBase
         return CreatedAtAction("GetCar", new { id = car.Id }, car);
     }
 
+    [Authorize(Roles = "admin")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteCar(int id)
     {

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Lab2_Baranov.Models;
@@ -48,6 +49,7 @@ public class RepairOrdersController : ControllerBase
         return Ok(totalCost);
     }
 
+    [Authorize]
     [HttpPut("{id}/complete")]
     public async Task<IActionResult> CompleteOrder(int id)
     {
@@ -65,6 +67,7 @@ public class RepairOrdersController : ControllerBase
         return NoContent();
     }
 
+    [Authorize(Roles = "admin")]
     [HttpPut("{id}")]
     public async Task<IActionResult> PutRepairOrder(int id, RepairOrder repairOrder)
     {
@@ -92,6 +95,7 @@ public class RepairOrdersController : ControllerBase
         return NoContent();
     }
 
+    [Authorize(Roles = "admin")]
     [HttpPost]
     public async Task<ActionResult<RepairOrder>> PostRepairOrder(RepairOrder repairOrder)
     {
@@ -101,6 +105,7 @@ public class RepairOrdersController : ControllerBase
         return CreatedAtAction("GetRepairOrder", new { id = repairOrder.Id }, repairOrder);
     }
 
+    [Authorize(Roles = "admin")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteRepairOrder(int id)
     {
