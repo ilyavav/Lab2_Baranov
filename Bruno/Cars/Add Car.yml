@@ -1,0 +1,28 @@
+info:
+  name: Add Car
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: https://localhost:7175/api/Cars
+  body:
+    type: json
+    data: |-
+      {
+        "id": 0,
+        "clientId": 2,
+        "brand": "Toyota",
+        "model": "Camry",
+        "year": 2020,
+        "licensePlate": "A123BC77",
+        "mileage": 65000
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

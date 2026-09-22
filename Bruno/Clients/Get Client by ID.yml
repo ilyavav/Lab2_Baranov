@@ -1,0 +1,16 @@
+info:
+  name: Get Client by ID
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: https://localhost:7175/api/Clients/1
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

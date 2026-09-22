@@ -1,0 +1,25 @@
+info:
+  name: Update Client
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: https://localhost:7175/api/Clients/1
+  body:
+    type: json
+    data: |-
+      {
+        "id": 1,
+        "name": "Иван Петров",
+        "phone": "+79990001122",
+        "completedOrders": 5
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

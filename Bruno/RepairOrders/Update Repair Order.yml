@@ -1,0 +1,28 @@
+info:
+  name: Update Repair Order
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: https://localhost:7175/api/RepairOrders/1
+  body:
+    type: json
+    data: |-
+      {
+        "id": 1,
+        "carId": 2,
+        "description": "Замена тормозных колодок",
+        "createdDate": "2026-09-22T16:20:00",
+        "workCost": 5500,
+        "partsCost": 8000,
+        "status": "InProgress"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

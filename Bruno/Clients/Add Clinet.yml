@@ -1,0 +1,25 @@
+info:
+  name: Add Clinet
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: https://localhost:7175/api/Clients
+  body:
+    type: json
+    data: |-
+      {
+        "id": 0,
+        "name": "Иван Иванов",
+        "phone": "+79990001122",
+        "completedOrders": 3
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

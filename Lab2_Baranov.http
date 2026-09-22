@@ -1,0 +1,6 @@
+@Lab2_Baranov_HostAddress = http://localhost:5145
+
+GET {{Lab2_Baranov_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
