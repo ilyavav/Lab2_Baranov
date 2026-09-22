@@ -33,6 +33,26 @@ public class CarsController : ControllerBase
         return car;
     }
 
+    [HttpPut("{id}/mileage/{newMileage}")]
+    public async Task<IActionResult> UpdateMileage(int id, int newMileage)
+    {
+        var car = await _context.Cars.FindAsync(id);
+
+        if (car == null)
+        {
+            return NotFound();
+        }
+
+        if (!car.UpdateMileage(newMileage))
+        {
+            return BadRequest();
+        }
+
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
     [HttpPut("{id}")]
     public async Task<IActionResult> PutCar(int id, Car car)
     {

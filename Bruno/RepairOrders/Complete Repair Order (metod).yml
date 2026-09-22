@@ -1,0 +1,16 @@
+info:
+  name: Complete Repair Order (metod)
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: https://localhost:7175/api/RepairOrders/1/complete
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

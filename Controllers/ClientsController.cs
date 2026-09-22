@@ -33,6 +33,21 @@ public class ClientsController : ControllerBase
         return client;
     }
 
+    [HttpGet("{id}/is-regular")]
+    public async Task<IActionResult> IsRegularClient(int id)
+    {
+        var client = await _context.Clients.FindAsync(id);
+
+        if (client == null)
+        {
+            return NotFound();
+        }
+
+        var isRegular = client.IsRegularClient();
+
+        return Ok(isRegular);
+    }
+
     [HttpPut("{id}")]
     public async Task<IActionResult> PutClient(int id, Client client)
     {

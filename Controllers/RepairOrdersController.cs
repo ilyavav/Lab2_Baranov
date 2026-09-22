@@ -33,6 +33,38 @@ public class RepairOrdersController : ControllerBase
         return repairOrder;
     }
 
+    [HttpGet("{id}/total-cost")]
+    public async Task<IActionResult> GetTotalCost(int id)
+    {
+        var repairOrder = await _context.RepairOrders.FindAsync(id);
+
+        if (repairOrder == null)
+        {
+            return NotFound();
+        }
+
+        var totalCost = repairOrder.GetTotalCost();
+
+        return Ok(totalCost);
+    }
+
+    [HttpPut("{id}/complete")]
+    public async Task<IActionResult> CompleteOrder(int id)
+    {
+        var repairOrder = await _context.RepairOrders.FindAsync(id);
+
+        if (repairOrder == null)
+        {
+            return NotFound();
+        }
+
+        repairOrder.CompleteOrder();
+
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
     [HttpPut("{id}")]
     public async Task<IActionResult> PutRepairOrder(int id, RepairOrder repairOrder)
     {
